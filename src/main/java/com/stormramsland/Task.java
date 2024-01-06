@@ -8,4 +8,11 @@ class Task {
         this.name = name;
         this.description = description;
     }
+    String getName() {
+        return this.name;
+    }
+
+    String getDescription() {
+        return this.description;
+    }
 }
