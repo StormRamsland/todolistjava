@@ -4,3 +4,4 @@ Tools used:
 * Java SE 21
 * Gradle 8.5
 * git
+* JavaFX
