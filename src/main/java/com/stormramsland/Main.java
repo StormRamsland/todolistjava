@@ -27,6 +27,20 @@ public class Main extends Application {
             Button buttonRename = new Button("Rename");
             Button buttonEdit = new Button("Edit");
 
+            //Linking the methods to the buttons
+            buttonAdd.setOnAction(event ->  {
+                addButton();
+            });
+            buttonRemove.setOnAction(event ->  {
+                removeButton();
+            });
+            buttonRename.setOnAction(event ->  {
+                renameButton();
+            });
+            buttonEdit.setOnAction(event ->  {
+                editButton();
+            });
+
             //Creating the toolbar
             ToolBar toolBar = new ToolBar();
             toolBar.getItems().addAll(buttonAdd, buttonRemove, separator, buttonRename, buttonEdit);
@@ -69,21 +83,36 @@ public class Main extends Application {
         launch(args);
     }
     //Method that adds the task as a label to the vbox
-    void createLabel(Task task,VBox vBox) {
+    private void createLabel(Task task,VBox vBox) {
         Label taskLabel = new Label(task.getName());
         taskLabel.setMaxWidth(50);
         HBox taskHBox = new HBox();
         taskHBox.getChildren().add(taskLabel);
         vBox.getChildren().add(taskHBox);
     }
-    void createDescription(Task task,VBox vBox) {
+    //Method that adds the task description as a label to the vbox
+    private void createDescription(Task task,VBox vBox) {
         Label descriptionLabel = new Label(task.getDescription());
         descriptionLabel.setWrapText(true);
         descriptionLabel.setMaxWidth(430);
         vBox.getChildren().add(descriptionLabel);
     }
-    void createNewTask(Task task,VBox taskView,VBox taskDescription) {
+    //Method that adds the task label and description to the vbox
+    private void createNewTask(Task task,VBox taskView,VBox taskDescription) {
         createLabel(task,taskView);
         createDescription(task,taskDescription);
+    }
+    //Method that
+    private void addButton() {
+
+    }
+    private void removeButton() {
+
+    }
+    private void editButton() {
+
+    }
+    private void renameButton() {
+
     }
 }
