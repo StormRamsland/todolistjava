@@ -9,11 +9,14 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.scene.layout.CornerRadii;
+import java.util.ArrayList;
 
 public class Main extends Application {
 
+    //Creating a list for containing the tasks
+    private ArrayList<Task> taskArrayList = new ArrayList<>();
     public void start (Stage primaryStage) {
         try {
             //Creating the borderpane
@@ -63,11 +66,10 @@ public class Main extends Application {
             root.setRight(taskDescription);
             BorderPane.setMargin(taskDescription,insets);
 
-
             //Creating example task
             Task exampleTask = new Task("Example","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+            taskArrayList.add(exampleTask);
             createNewTask(exampleTask,taskView,taskDescription);
-
 
             //Creating the scene
             Scene scene = new Scene(root,500,500);
@@ -89,6 +91,12 @@ public class Main extends Application {
         HBox taskHBox = new HBox();
         taskHBox.getChildren().add(taskLabel);
         vBox.getChildren().add(taskHBox);
+        taskHBox.setOnMouseClicked(event -> {
+            taskHBox.setBackground(new Background(new BackgroundFill(Color.LIGHTGREY, CornerRadii.EMPTY, Insets.EMPTY)));
+            for(int i = 0; i < taskArrayList.size(); i++) {
+                taskArrayList.get(i);
+            }
+        });
     }
     //Method that adds the task description as a label to the vbox
     private void createDescription(Task task,VBox vBox) {
